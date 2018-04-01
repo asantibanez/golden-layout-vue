@@ -13,7 +13,8 @@
     "golden-layout": "^1.5.9",
     "jquery": "^3.3.1",
     "vue": "^2.5.11",
-    "vuex": "^3.0.1"
+    "vuex": "^3.0.1",
+    "vuex-shared-mutations": "0.0.3"
   },
   "browserslist": [
     "> 1%",

@@ -12,18 +12,23 @@ import FormComponent from './FormComponent.vue'
 Vue.component('app', App)
 Vue.component('form-component', FormComponent)
 
+if(!localStorage.getItem('sharedCount'))	/**/
+	localStorage.setItem('sharedCount', 25);
+
+import createMutationsSharer from 'vuex-shared-mutations'
 const store = new Vuex.Store({
     state: {
-        count: 25
+        count: localStorage.getItem('sharedCount')
     },
     mutations: {
         increment (state) {
-            state.count++
+					localStorage.setItem('sharedCount', ++state.count);
         }
     },
     getters: {
         counter: state => state.count
-    }
+		},
+		plugins: [createMutationsSharer({ predicate: ['increment'] })]
 })
 
 new Vue({
